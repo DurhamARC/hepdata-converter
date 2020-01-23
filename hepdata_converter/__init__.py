@@ -1,9 +1,9 @@
-import StringIO
+from io import StringIO
 import argparse
 import sys
-import version
-from parsers import Parser
-from writers import Writer
+from . import version
+from .parsers import Parser
+from .writers import Writer
 
 
 def convert(input, output=None, options={}):
@@ -105,7 +105,7 @@ def _main(arguments=sys.argv):
 def main(arguments=sys.argv):
     r, message = _main(arguments)
     if r == 0:
-        print message
+        print(message)
     else:
-        print >> sys.stderr, message
+        print(message, sys.stderr)
     sys.exit(r)
